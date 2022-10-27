@@ -56,8 +56,6 @@ export const deleteOneEmployee = async(req, res) => {
 
 }
 
-
-
 // Actualitza el salari , nom del usuari [id] en el cas de que li passem ,en el cas de que no, deixa el anterior
 export const updateEmployees = async(req, res) => {
     try {

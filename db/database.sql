@@ -31,6 +31,18 @@ CREATE TABLE USUARI (
     PRIMARY key (email)
 );
 
+CREATE TABLE MAQUINA (
+    id_maquina INTEGER NOT NULL,
+    id_lab INTEGER,
+    nom_maquina VARCHAR(30) NOT NULL,
+    descripcio VARCHAR(120),
+    estat INTEGER NOT NULL, --2 apagada, 3 encesa, 4 fora de servei
+    email VARCHAR(30) NOT NULL,
+    calibracio REAL,
+    PRIMARY KEY (id_maquina),
+    FOREIGN KEY (id_lab) REFERENCES TECHLAB(id_techlab) ON DELETE CASCADE
+);
+
 CREATE TABLE TECHLAB (
     id_techlab INTEGER,
     aforament_max INTEGER NOT NULL,
@@ -38,16 +50,6 @@ CREATE TABLE TECHLAB (
     maquines_numero INTEGER NOT NULL,
     maquines_ocupades INTEGER NOT NULL,
     PRIMARY key (id_techlab)
-);
-
-CREATE TABLE MAQUINA (
-    id_maquina INTEGER NOT NULL,
-    nom_maquina VARCHAR(30) NOT NULL,
-    descripcio VARCHAR(120),
-    estat INTEGER NOT NULL, --2 apagada, 3 encesa, 4 fora de servei
-    email VARCHAR(30) NOT NULL,
-    calibracio REAL,
-    PRIMARY KEY (id_maquina)
 );
 
 CREATE TABLE RESERVES (

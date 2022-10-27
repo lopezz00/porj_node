@@ -13,7 +13,7 @@ export const getAllUsers = async(req, res) => {
 // Em retorna un user un cop donada un id
 export const getOneUser = async(req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM USUARI WHERE USUARI = (?)', [req.params.id])
+        const [rows] = await pool.query('SELECT * FROM USUARI WHERE email = (?)', [req.params.id])
 
         if (rows.length <= 0) return res.status(404).json({
             message: "Employee not found"

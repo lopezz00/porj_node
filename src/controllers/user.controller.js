@@ -10,7 +10,7 @@ export const getAllUsers = async(req, res) => {
     }
 }
 
-// Em retorna un user un cop donada un id
+// Em retorna un user un cop donadat un email
 export const getOneUser = async(req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM USUARI WHERE email = (?)', [req.params.id])

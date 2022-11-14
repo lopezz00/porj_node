@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x:hidden;
+}
+
+/*MENU*/
+
+#menu li > a{ /*S'aplica a els items 'a' que estiguin a dins de 'li'*/
+    font-size: 20px;
+    font-weight:bold;
+    color: #3f3f3f;
+}
+
+#menu form > button{ 
+    font-size: 18px;
+    font-weight:bold;
+}
+
+/*SLIDER DE IMATGES*/
+.carousel-inner{
+    max-height: 24rem;
+}
+
+/*MAPA*/
+
+@media (max-width:768px) {
+    #intro {
+        width:90% !important;
+    }
+}
+
+.mapa {
+    background: url(../img/mapa.png);
+    width:100%;
+    height:300px;
+}
+
+#local{
+    background:#f3f3f3;
+    padding-bottom:300px;
+    display:flex;
+    justify-content: center;
+}
+
+.wrapper{
+    width:50%;
+    margin-left:100px;
+    padding-top:150px;
+}
+
+/*MEDIA QUERIES PER A PANTALLA AMPLA*/
+
+@media(max-width:1200px){
+    #local {
+        flex-wrap: wrap;
+        padding-top: 35px;
+    }
+
+    .wrapper {
+        width:90%;
+        margin:auto;
+        padding-top:50px;
+    }
+}
+
+/*=========================MEDIA QUERIES PANTALLA SM================================*/
+

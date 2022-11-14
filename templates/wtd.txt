@@ -1,0 +1,7 @@
+- FEr fotods al lab
+- VEure com posar imatges senceres, no nomes la part de dalt
+git fetch
+git pull
+git add .
+git commit -m "blabla"
+git push -u origin master

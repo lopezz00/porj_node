@@ -51,7 +51,7 @@ export const createUser = async (req, res) => {
 }
 
 // Update nom i cogonom d'un usuari donat un email en el body
-export const updateEmployees = async(req, res) => {
+export const updateUser = async(req, res) => {
     try {
         const {email} = req.params
         const {nom, cognom1} = req.body

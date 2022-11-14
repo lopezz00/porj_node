@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllUsers, getOneUser, createUser, deleteOneUser } from '../controllers/user.controller.js'
+import { getAllUsers, getOneUser, createUser, deleteOneUser, updateUser } from '../controllers/user.controller.js'
 
 const router = Router()
 
@@ -11,9 +11,9 @@ router.get('/user/:email', getOneUser)
 router.post('/user', createUser)
 
 // Metodes PATCH
-router.patch('/employees/:email', deleteOneUser)
+router.patch('/user/:email', updateUser)
 
 // Metodes DELETE
-router.delete('/employees/:email', deleteOneUser)
+router.delete('/user/:email', deleteOneUser)
 
 export default router

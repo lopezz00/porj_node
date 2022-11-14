@@ -33,12 +33,11 @@ export const createUser = async (req, res) => {
     try {
         const {email, nom, cognom1, cognom2} = req.body
         const [rows] = await pool.query(
-            'INSERT INTO USUARI (email, name, cognom1, cognom2) VALUES (?, ?, ?, ?)', 
+            'INSERT INTO USUARI (email, nom, cognom1, cognom2) VALUES (?, ?, ?, ?)', 
             [email, nom, cognom1, cognom2]
         )
 
-        res.send({
-            id: rows.insertId, 
+        res.send({ 
             email, 
             nom, 
             cognom1, 

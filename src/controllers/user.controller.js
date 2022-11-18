@@ -38,14 +38,14 @@ export const createUser = async (req, res) => {
         )
 
         res.send({ 
-            email, 
+            email,
             nom, 
             cognom1, 
             cognom2,
         })
 
     } catch (e) {
-        return res.status(500).json({message: 'Someting went wrong'})
+        return res.status(500).json({message: 'Someting went wrong, unable to create user.'})
     }
 }
 

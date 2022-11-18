@@ -25,9 +25,9 @@ CREATE TABLE USUARI (
     nom VARCHAR(30) NOT NULL,
     cognom1 VARCHAR(30) NOT NULL,
     cognom2 VARCHAR(30),
-    pw_hash VARCHAR(32) NOT NULL, -- Contindrà el hash de la contrasenya de l'usuari. No salt. Sha(256) s'espera.
+    pw_hash VARCHAR(32) NOT NULL,   -- Contindrà el hash de la contrasenya de l'usuari. No salt. Sha(256) s'espera.
     rol VARCHAR(30) NOT NULL,
-    id VARCHAR(8) NOT NULL,
+    id VARCHAR(8) NOT NULL,         -- Valor targta RFID
     PRIMARY key (email)
 );
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllUsers, getOneUser, createUser, deleteOneUser, updateUser } from '../controllers/user.controller.js'
+import { getAllUsers, getOneUser, login, deleteOneUser, updateUser } from '../controllers/user.controller.js'
 
 const router = Router()
 
@@ -8,7 +8,7 @@ router.get('/user', getAllUsers)
 router.get('/user/:email', getOneUser)
 
 // Metodes POST
-router.post('/user', createUser)
+router.post('/user', login)
 
 // Metodes PATCH
 router.patch('/user/:email', updateUser)

@@ -1,24 +1,26 @@
+PRAGMA foreign_keys=on;
+
 CREATE TABLE USUARI (
-    email VARCHAR(30) NOT NULL PRIMARY KEY,
+    email VARCHAR(50) NOT NULL PRIMARY KEY, --Canviat a 50 caracters com a maxim, ja que hi han correus que superen l'anterior llargada definida (30)
     nom VARCHAR(30) NOT NULL,
     cognom1 VARCHAR(30) NOT NULL,
     cognom2 VARCHAR(30),
     pw_hash VARCHAR(32) NOT NULL,               -- Contindrà el hash de la contrasenya de l'usuari. No salt. Sha(256) s'espera.
     rol VARCHAR(30) NOT NULL,
-    id VARCHAR(8) NOT NULL,                     -- Valor targta RFID
-    PRIMARY key (email)
+    id VARCHAR(8) NOT NULL                    -- Valor targta RFID
+);
+
+CREATE TABLE MAQUINA_EN_TECHLAB(
+    id_maquina INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_lab INTEGER,
+    nom_maquina VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_lab) REFERENCES TECHLAB(id_techlab) ON DELETE CASCADE,
+    FOREIGN KEY (nom_maquina) REFERENCES MAQUINA(nom_maquina) ON DELETE CASCADE
 );
 
 CREATE TABLE MAQUINA (
-    id_maquina INTEGER NOT NULL,
-    id_lab INTEGER,
-    nom_maquina VARCHAR(30) NOT NULL,
-    descripcio VARCHAR(120),
-    estat INTEGER NOT NULL,                     --2 apagada, 3 encesa, 4 fora de servei
-    email VARCHAR(30) NOT NULL,
-    calibracio REAL,
-    PRIMARY KEY (id_maquina),
-    FOREIGN KEY (id_lab) REFERENCES TECHLAB(id_techlab) ON DELETE CASCADE
+    nom_maquina VARCHAR(50) NOT NULL,
+    descripcio VARCHAR(120)
 );
 
 CREATE TABLE TECHLAB (
@@ -56,14 +58,8 @@ CREATE TABLE HISTORIAL(
     FOREIGN KEY (email) REFERENCES USUARI(email) ON DELETE CASCADE
 );
 
-CREATE TABLE CONFIGMAQUINES(                    -- Diria que no ho farem servir, ja ho eliminarem de la bd en el cas de que sigui aixi
-    nom_maquina VARCHAR(30) NOT NULL,           -- Diria que no ho farem servir, ja ho eliminarem de la bd en el cas de que sigui aixi
-    ssid_wifi VARCHAR(30) NOT NULL,             -- Diria que no ho farem servir, ja ho eliminarem de la bd en el cas de que sigui aixi
-    pswd_wifi VARCHAR(30) NOT NULL,             -- Diria que no ho farem servir, ja ho eliminarem de la bd en el cas de que sigui aixi
-    PRIMARY KEY (nom_maquina)                   -- Diria que no ho farem servir, ja ho eliminarem de la bd en el cas de que sigui aixi
-);
 
-
+PRAGMA foreign_keys=on;
 
 
 -- CREATE DATABASE IF NOT EXISTS companydb;

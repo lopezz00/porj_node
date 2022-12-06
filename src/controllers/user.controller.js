@@ -85,29 +85,3 @@ export const deleteOneUser = async(req, res) => {
         return res.status(500).json({message: 'Someting went wrong'})
     }
 }
-
-export const createUser = async (req, res) => {
-    try {
-        const {name, salary} = req.body
-        const [rows] = await pool.query('INSERT INTO employee(name, salary) VALUES (?, ?)', [name, salary])
-    
-        res.send({name, salary,
-        })
-
-    } catch (e) {
-        return res.status(500).json({message: 'Someting went wrong'})
-    }
-}
-
-export const add_user = async (req, res) => {
-    try {
-        const {name, salary} = req.body
-        const [rows] = await pool.query('INSERT INTO employee(name, salary) VALUES (?, ?)', [name, salary])
-    
-        res.send({id: rows.insertId, name, salary,
-        })
-
-    } catch (e) {
-        return res.status(500).json({message: 'Someting went wrong'})
-    }
-}
